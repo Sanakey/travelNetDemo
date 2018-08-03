@@ -24,11 +24,11 @@ export default {
       swiperList: [
         {
           id: '0001',
-          imgUrl: 'https://img1.qunarzz.com/vc/31/cc/75/3c014d49de263aea6bf9bffeda.png'
+          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1807/c6/44fce1467be17702.jpg_750x200_406f5fc3.jpg'
         },
         {
           id: '0002',
-          imgUrl: 'https://imgs.qunarzz.com/ftejia/1807/73/0d47b847a6d675.jpg'
+          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1806/3c/c72a1ccd4d7b2202.jpg_750x200_b88bbab4.jpg'
         }
       ]
     }
@@ -46,7 +46,7 @@ export default {
     overflow: hidden
     width: 100
     height: 0
-    padding-bottom: 51.73%
+    padding-bottom: 26.67%
     background-color: #eee
     .swiper-img
       width: 100%;
