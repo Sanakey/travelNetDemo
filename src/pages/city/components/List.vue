@@ -12,100 +12,16 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
+          <div class="button-wrapper" v-for="item of hot" :key="item.id">
+            <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
+      <div class="area" v-for="(item,key) of cities" :key="key">
+        <div class="title border-topbottom">{{key}}</div>
+        <div class="item-list" v-for="itemCity of item" :key="itemCity.id">
           <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
-          </div>
-          <div class="item border-bottom">
-            ABCDB
+            {{itemCity.name}}
           </div>
         </div>
       </div>
@@ -118,7 +34,11 @@ import Bscroll from 'better-scroll'
 
 export default {
   name: 'CityList',
-  mounted: function () {
+  props: {
+    hot: Array,
+    cities: Object
+  },
+  mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)
   }
 }
