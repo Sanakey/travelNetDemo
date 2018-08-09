@@ -13,6 +13,7 @@
           class="search-item border-bottom"
           v-for="item of list"
           :key="item.id"
+          @click="handleCityClick(item.name)"
         >
           {{item.name}}
         </li>
@@ -67,7 +68,8 @@ export default {
   },
   methods: {
     handleCityClick (city) {
-      this.changeCity(city)
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
     }
   },
   mounted () {
@@ -101,7 +103,7 @@ export default {
     bottom: 0
     background: #eee
     .search-item
-      line-height: .72rem
+      line-height: .62rem
       padding-left: .2rem
       background: #fff
       color: #666
