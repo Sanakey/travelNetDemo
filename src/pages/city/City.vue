@@ -32,6 +32,9 @@ export default {
   mounted () {
     this.getCityInfo()
   },
+  // activated () {
+  //   this.keyword = ''
+  // },
   methods: {
     getCityInfo () {
       axios.get('/api/city.json').then(this.getCityDatas)
@@ -47,6 +50,10 @@ export default {
     handleLetterChange (letter) {
       this.letter = letter
     }
+    // handleKeyWordChange (keyword) {
+    //   this.keyword = keyword
+    // @change="handleKeyWordChange"
+    // }
   }
 
 }

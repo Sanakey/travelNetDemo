@@ -32,6 +32,7 @@ export default {
   name: 'CitySearch',
   props: {
     cities: Object
+    // keyword: String
   },
   data () {
     return {
@@ -47,6 +48,7 @@ export default {
   },
   watch: {
     keyword () {
+      // this.$emit('change', this.keyword)
       if (this.timer) {
         clearTimeout(this.timer)
       }
@@ -71,6 +73,7 @@ export default {
     handleCityClick (city) {
       this.changeCity(city)
       this.$router.push('/')
+      this.keyword = ''
     },
     ...mapMutations(['changeCity'])
   },

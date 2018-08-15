@@ -26,6 +26,9 @@
         </div>
       </div>
     </div>
+    <transition name="fade" v-for="(item,key) of cities" :key="key">
+      <p v-if="letter===key" class="center-tips" ref="tips">{{key}}</p>
+    </transition>
   </div>
 </template>
 
@@ -52,11 +55,25 @@ export default {
     },
     ...mapMutations(['changeCity'])
   },
+  data () {
+    return {
+      timer: null,
+      cletter: this.letter
+    }
+  },
   watch: {
     letter () {
       if (this.letter) {
         const element = this.$refs[this.letter][0]
         this.scroll.scrollToElement(element)
+
+        if (this.timer) {
+          clearTimeout(this.timer)
+        }
+        this.timer = setTimeout(() => {
+          this.$refs.tips[0].style.opacity = 0
+          // this.letter = ''
+        }, 1000)
       }
     }
   },
@@ -107,4 +124,26 @@ export default {
       .item
         line-height: .76rem
         padding-left: .2rem
+  .center-tips
+    position: fixed
+    top: 50%
+    left: 50%
+    width: 2rem
+    height: 2rem
+    margin-left: -1rem
+    margin-top: -1rem
+    font-size: 3em
+    color: #999
+    text-align: center
+    line-height: 2rem
+    border: 1px solid #ddd
+    transition: opacity .5s
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
 </style>
